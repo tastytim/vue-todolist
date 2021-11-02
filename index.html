@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todolist</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" tabindex="0" >
+      <header>
+          <h1>Hello Vueoolean - Todolist</h1>
+      </header>
+      <main>
+
+          <input v-model="inputText" type="text" placeholder="Vorrei...">
+          <button @keyup.enter="addNewItem" @click="addNewItem" class="addButton">Aggiungi</button>
+          <!-- - stampare in pagina un item per ogni elemento contenuto in un array -->
+          <div v-for="(item, index) of itemsList "id ="toDoList">
+              <!-- - ogni item ha una “x” associata: cliccando su di essa, l’item viene rimosso dalla lista -->
+              <div class="rowList">{{index}} - {{item.text}} <button @click="deleteItem(index)" class="deleteButton">X</button></div>
+
+
+          </div>
+      </main>
+      <footer></footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
